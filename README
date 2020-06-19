@@ -2,6 +2,14 @@ dwm - dynamic window manager
 ============================
 dwm is an extremely fast, small, and dynamic window manager for X.
 
+Custom build patched via git merge with:
+    pango               ttf support for status bar
+    centeredmaster      layout with master window in center, Mod + U
+    removeborder        doesn't show border when only one window shown
+    pertag              keeps layout, mwfact, barpos and nmaster per tag
+    resizecorners       resizing window by any corner
+    swallow             when app launched from terminal it is contained within terminal window
+
 
 Requirements
 ------------
