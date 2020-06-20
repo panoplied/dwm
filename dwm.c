@@ -40,7 +40,6 @@
 #include <X11/extensions/Xinerama.h>
 #endif /* XINERAMA */
 #include <X11/Xft/Xft.h>
-#include <pango/pango.h>
 #include <X11/Xlib-xcb.h>
 #include <xcb/res.h>
 #include <pango/pango.h>
@@ -1388,8 +1387,6 @@ void
 resizeclient(Client *c, int x, int y, int w, int h)
 {
 	XWindowChanges wc;
-    unsigned int n;
-    Client *nbc;
 
 	c->oldx = c->x; c->x = wc.x = x;
 	c->oldy = c->y; c->y = wc.y = y;
@@ -1404,7 +1401,6 @@ resizeclient(Client *c, int x, int y, int w, int h)
 		c->h = wc.height += c->bw * 2;
 		wc.border_width = 0;
 	}
-
 	XConfigureWindow(dpy, c->win, CWX|CWY|CWWidth|CWHeight|CWBorderWidth, &wc);
 	configure(c);
 	XSync(dpy, False);
