@@ -43,6 +43,7 @@
 #include <pango/pango.h>
 #include <X11/Xlib-xcb.h>
 #include <xcb/res.h>
+#include <pango/pango.h>
 
 #include "drw.h"
 #include "util.h"
@@ -255,8 +256,8 @@ static pid_t winpid(Window w);
 
 /* variables */
 static const char broken[] = "broken";
-static char stext[512];
 static int scanner;
+static char stext[512];
 static int screen;
 static int sw, sh;           /* X display screen geometry width, height */
 static int bh, blw = 0;      /* bar geometry */
@@ -1395,15 +1396,14 @@ resizeclient(Client *c, int x, int y, int w, int h)
 	c->oldw = c->w; c->w = wc.width = w;
 	c->oldh = c->h; c->h = wc.height = h;
 	wc.border_width = c->bw;
-
-    for (n = 0, nbc = nexttiled(selmon->clients); nbc; nbc = nexttiled(nbc->next), n++);
-
-    if (c->isfloating || selmon->lt[selmon->sellt]->arrange == NULL) {
-    } else {
-           if (selmon->lt[selmon->sellt]->arrange == monocle || n == 1) {
-               wc.border_width = 0;
-           }
-    }
+	if (((nexttiled(c->mon->clients) == c && !nexttiled(c->next))
+	    || &monocle == c->mon->lt[c->mon->sellt]->arrange)
+	    && !c->isfullscreen && !c->isfloating
+	    && NULL != c->mon->lt[c->mon->sellt]->arrange) {
+		c->w = wc.width += c->bw * 2;
+		c->h = wc.height += c->bw * 2;
+		wc.border_width = 0;
+	}
 
 	XConfigureWindow(dpy, c->win, CWX|CWY|CWWidth|CWHeight|CWBorderWidth, &wc);
 	configure(c);
