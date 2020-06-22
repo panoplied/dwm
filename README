@@ -1,4 +1,72 @@
-dwm - dynamic window manager
+Custom dwm (dynamic window manager) build. Patched manually with:
+
+- actualfullscreen
+  https://dwm.suckless.org/patches/actualfullscreen/
+  (alt+shift+f)
+  
+- centeredmaster
+  https://dwm.suckless.org/patches/centeredmaster/
+  (alt+u; alt+o)
+
+- fibonacci
+  https://dwm.suckless.org/patches/fibonacci/
+  (alt+r; alt+shift+r)
+
+- noborder
+  https://dwm.suckless.org/patches/noborder/
+
+- scratchpad
+  https://dwm.suckless.org/patches/scratchpad/
+  (alt+~)
+
+- swallow
+  https://dwm.suckless.org/patches/swallow/
+  
+- resizecorners
+  https://dwm.suckless.org/patches/resizecorners/
+  
+- stacker
+  https://dwm.suckless.org/patches/stacker/
+  ( focus: 
+    alt+j next;
+    alt+k previous;
+    alt+v first position, rebinded from alt+q;
+    
+    push:
+    shift+alt+j next;
+    shift+alt+k previous;
+    shift+alt+v first position, rebinded from alt+q;
+    other default binds commented out in config.def.h
+  )
+
+- pertag-perseltag
+  https://dwm.suckless.org/patches/pertag/
+
+- vanitygaps
+  https://dwm.suckless.org/patches/vanitygaps/
+  (
+    Alt+Super+0 ― toggle gaps on and off
+    Alt+Super+Shift+0 ― reset gaps back to default
+    Alt+Super+h ― increase all gaps
+    Alt+Super+l ― decrease all gaps
+    Alt+Super+Shift+h ― increase outer gaps
+    Alt+Super+Shift+l ― decrease outer gaps
+    Alt+Super+Ctrl+h ― increase inner gaps
+    Alt+Super+Ctrl+l ― decrease inner gaps
+    Alt+y ― increase inner horizontal gaps
+    Alt+o ― decrease inner horizontal gaps [COLLIDES WITH CENTERED MASTER NOW, DEFAULT NEEDS REBINDING]
+    Alt+Ctrl+y ― increase inner vertical gaps
+    Alt+Ctrl+o ― decrease outer vertical gaps
+    Alt+Super+y ― increase outer horizontal gaps
+    Alt+Super+o ― decrease outer horizontal gaps
+    Alt+Shift+y ― increase outer vertical gaps
+    Alt+Shift+o ― decrease outer vertical gaps
+   )
+   
+(i) Install dmenu (alt+p) - menu and launcher for X.
+
+(!) Install libxft-bgra to prevent crashing when displaying emojis in statusbar.
+
 ============================
 dwm is an extremely fast, small, and dynamic window manager for X.
 
