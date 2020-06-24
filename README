@@ -63,6 +63,25 @@ Custom dwm (dynamic window manager) build. Patched manually with:
     Alt+Shift+o ― decrease outer vertical gaps
    )
    
+ - xrdb
+   https://dwm.suckless.org/patches/xrdb/
+   (
+     Xresources are:
+       dwm.normbordercolor
+       dwm.normbgcolor
+       dwm.normfgcolor
+       dwm.selbordercolor
+       dwm.selbgcolor
+       dwm.selfgcolor
+     The workflow:
+       - state the resources in Xresources file (usually .Xresources in ~) with corresponding colors (dwm.selbgcolor: #005577 for example)
+       - xinit
+       - change Xresources (manually or by external script/program)
+       - reload Xresources for X (xrdb ~/.Xresources for example)
+       - reload Xresources for dwm (alt+f5)
+     #define instructions are supported in Xresources config file
+   )
+    
 (i) Install dmenu (alt+p) - menu and launcher for X.
 
 (!) Install libxft-bgra to prevent crashing when displaying emojis in statusbar.
